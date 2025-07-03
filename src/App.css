@@ -1,0 +1,246 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background-color: #1e1e1e;
+  background-image: url(assets/hotrod_flame_cleaned-removebg-preview.png),
+    url(assets/dark-texture-details-of-surface-of-asphalt-or-tamac-on-new-road-.jpg); /* Asphalt texture */
+  background-repeat: no-repeat, repeat;
+  background-position: bottom left, center;
+  background-size: 300px, auto;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color: #f5f5f5;
+  overflow-y: auto;
+}
+
+.car-card-wrapper {
+  width: 500px;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+
+  border-radius: 12px;
+  padding: 3px;
+  background: linear-gradient(
+    45deg,
+    #757575 5%,
+    #fff 20%,
+    #ccc 30%,
+    #ddd 50%,
+    #ccc 70%,
+    #fff 80%,
+    #999 95%
+  );
+  margin-bottom: 15px;
+
+  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  box-sizing: border-box;
+}
+
+.car-card-wrapper:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+.car-card {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.car-form {
+  width: 500px;
+  height: 175px;
+}
+
+.car-card,
+.car-form {
+  position: relative;
+  background: url(assets/tire-tread-panorama.png) no-repeat center;
+  background-size: cover;
+
+  padding: 15px 20px;
+  border-left: 5px solid #ff4500;
+  border-radius: 12px;
+
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  overflow: hidden;
+}
+
+.car-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+.car-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 10s infinite ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  20% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.rivet-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.rivet {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #aaa, #555);
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #000;
+}
+
+.rivet.top-left {
+  top: 10px;
+  left: 10px;
+}
+.rivet.top-right {
+  top: 10px;
+  right: 10px;
+}
+.rivet.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+.rivet.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.car-card:hover .rivet {
+  box-shadow: inset 0 0 2px #000, 0 0 5px rgba(255, 140, 0, 0.8);
+}
+
+.car-content {
+  width: 90%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-content button {
+  background: linear-gradient(5deg, #ff0000 0%, #ff0000 30%, #fdcf58 100%);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.car-content button:hover {
+  background: linear-gradient(180deg, #ff0000 0%, #ff0000 20%, #fdcf58 100%);
+  transform: scale(1.05);
+}
+
+.car-details {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-form {
+  height: 100%;
+}
+
+.car-form form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.car-form input {
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #ff4500;
+  text-transform: uppercase;
+}
+
+p {
+  color: #ddd;
+}
+
+input {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
+
+button {
+  background: linear-gradient(5deg, #ff0000 0%, #ff0000 30%, #fdcf58 100%);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(180deg, #ff0000 0%, #ff0000 30%, #fdcf58 100%);
+  transform: scale(1.05);
+}
+
+input::placeholder {
+  color: #aaa;
+}
