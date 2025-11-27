@@ -2,44 +2,44 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import CarCard from "./components/CarCard";
-import CarForm from "./components/Carform";
+import CarForm from "./components/CarForm";
 
 // // ===== Hooks, State =====
 // DRY - Don't Repeat Yourself
 // Conditional rendering
 
 export default function App() {
-  const initialCars = [
-    { make: "Toyota", model: "Camry", year: 2020 },
-    { make: "Ford", model: "Mustang", year: 2018 },
-    { make: "BMW", model: "X5", year: 2023 },
-  ];
+	const initialCars = [
+		{ make: "Toyota", model: "Camry", year: 2020 },
+		{ make: "Ford", model: "Mustang", year: 2018 },
+		{ make: "BMW", model: "X5", year: 2023 },
+	];
 
-  const [cars, setCars] = useState(() => {
-    const storedCars = localStorage.getItem("cars");
-    return storedCars ? JSON.parse(storedCars) : initialCars;
-  });
+	const [cars, setCars] = useState(() => {
+		const storedCars = localStorage.getItem("cars");
+		return storedCars ? JSON.parse(storedCars) : initialCars;
+	});
 
-  useEffect(() => {
-    localStorage.setItem("cars", JSON.stringify(cars));
-  }, [cars]);
+	useEffect(() => {
+		localStorage.setItem("cars", JSON.stringify(cars));
+	}, [cars]);
 
-  function addCar(newCar) {
-    setCars((prev) => [...prev, newCar]);
-  }
+	function addCar(newCar) {
+		setCars((prev) => [...prev, newCar]);
+	}
 
-  function deleteCar(index) {
-    setCars((prev) => prev.filter((_, i) => i !== index));
-  }
+	function deleteCar(index) {
+		setCars((prev) => prev.filter((_, i) => i !== index));
+	}
 
-  return (
-    <div>
-      {cars.map((car, i) => (
-        <CarCard key={i} car={car} onDelete={() => deleteCar(i)} />
-      ))}
-      <CarForm onAddCar={addCar} />
-    </div>
-  );
+	return (
+		<div>
+			{cars.map((car, i) => (
+				<CarCard key={i} car={car} onDelete={() => deleteCar(i)} />
+			))}
+			<CarForm onAddCar={addCar} />
+		</div>
+	);
 }
 
 //   // .push(newCarHere)
